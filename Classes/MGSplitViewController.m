@@ -23,8 +23,14 @@ NSUInteger DeviceSystemMajorVersion() {
 
 #define MG_DEFAULT_SPLIT_POSITION		320.0	// default width of master view in UISplitViewController.
 #define MG_DEFAULT_SPLIT_WIDTH			1.0		// default width of split-gutter in UISplitViewController.
-#define MG_DEFAULT_CORNER_RADIUS		5.0		// default corner-radius of overlapping split-inner corners on the master and detail views.
-#define MG_DEFAULT_CORNER_COLOR			[UIColor blackColor]	// default color of intruding inner corners (and divider background).
+
+#ifdef MY_MACRO_NAME
+#define MG_DEFAULT_CORNER_RADIUS		0.0		// default corner-radius of overlapping split-inner corners on the master and detail views.
+#else
+#define MG_DEFAULT_CORNER_RADIUS		10.0		// default corner-radius of overlapping split-inner corners on the master and detail views.
+#endif
+
+#define MG_DEFAULT_CORNER_COLOR			[UIColor grayColor]	// default color of intruding inner corners (and divider background).
 
 #define MG_PANESPLITTER_CORNER_RADIUS	0.0		// corner-radius of split-inner corners for MGSplitViewDividerStylePaneSplitter style.
 #define MG_PANESPLITTER_SPLIT_WIDTH		25.0	// width of split-gutter for MGSplitViewDividerStylePaneSplitter style.
@@ -153,6 +159,9 @@ NSUInteger DeviceSystemMajorVersion() {
   _dividerView.splitViewController = self;
   _dividerView.backgroundColor = MG_DEFAULT_CORNER_COLOR;
   _dividerStyle = MGSplitViewDividerStyleThin;
+    
+    self.view.autoresizesSubviews = NO;
+
 }
 
 
