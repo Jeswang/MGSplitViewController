@@ -48,7 +48,7 @@
 		// Draw gradient background.
 		CGRect bounds = self.bounds;
 		CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
-		CGFloat locations[2] = {0, 1};
+		CGFloat locations[2] = {0, 1};  
 		CGFloat components[8] = {	0.988, 0.988, 0.988, 1.0,  // light
 									0.875, 0.875, 0.875, 1.0 };// dark
 		CGGradientRef gradient = CGGradientCreateWithColorComponents (rgb, components, locations, 2);
